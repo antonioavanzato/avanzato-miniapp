@@ -5,36 +5,94 @@ tg.expand();
 // Данные для разделов
 const sections = {
     main: {
+           main: {
         title: 'Anton Avanzato',
         content: `
-            <div class="menu-grid">
-                <button class="menu-item" onclick="app.navigateTo('portfolio')">
-                    <span class="emoji">📸</span>
-                    <span class="label">Портфолио</span>
-                </button>
-                <button class="menu-item" onclick="app.navigateTo('price')">
-                    <span class="emoji">💰</span>
-                    <span class="label">Прайс</span>
-                </button>
-                <button class="menu-item" onclick="app.navigateTo('tutorial')">
-                    <span class="emoji">🎓</span>
-                    <span class="label">Обучение</span>
-                </button>
-                <button class="menu-item" onclick="app.navigateTo('presets')">
-                    <span class="emoji">🎨</span>
-                    <span class="label">Пресеты</span>
-                </button>
-                <button class="menu-item" onclick="app.navigateTo('web')">
-                    <span class="emoji">🌐</span>
-                    <span class="label">Создание сайта</span>
-                </button>
-                <button class="menu-item" onclick="app.navigateTo('reviews')">
-                    <span class="emoji">⭐</span>
-                    <span class="label">Отзывы</span>
-                </button>
-                <button class="menu-item" onclick="app.navigateTo('contacts')">
-                    <span class="emoji">📞</span>
-                    <span class="label">Контакты</span>
+            <div style="text-align: center; margin-bottom: 24px;">
+                <h1 style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">
+                    ПОРТРЕТНЫЙ И ПРЕДМЕТНЫЙ ФОТОГРАФ<br>В КАЗАНИ — АНТОН АВАНЗАТО
+                </h1>
+            </div>
+
+            <div class="card">
+                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+                    Меня зовут Антон Аванзато. Создаю атмосферные портреты, предметную съёмку и визуальные истории. 
+                    Мой подход — это эстетика в простоте. Работаю в Казани и Москве. Более 250 завершённых проектов.
+                </p>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--tg-theme-button-color, #40a7e3); display: flex; align-items: center; justify-content: center; font-size: 32px; color: white;">
+                    А
+                </div>
+                <div>
+                    <h2 style="font-size: 22px; font-weight: 600; margin-bottom: 4px;">Антон Аванзато</h2>
+                    <p style="color: var(--tg-theme-hint-color, #666);">Фотограф с 2019</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <p style="font-size: 16px; line-height: 1.6;">
+                    Я фотограф с 2019 года. Для меня фотография — это способ зафиксировать красоту момента в её первозданном виде. 
+                    Специализируюсь на портретной и предметной съёмке, уделяя внимание каждой детали и световому рисунку.
+                </p>
+                <p style="font-size: 16px; line-height: 1.6; margin-top: 12px;">
+                    Мои работы отмечены 500px (Выбор редакции), Agora Awards, 35awards, Portfolio Party и опубликованы в книге 
+                    THE PLACE ECONOMY® издательства Hoyne. Обучаю цвету и обработке в Photoshop, Lightroom и DaVinci Resolve — 
+                    без воды, только практика.
+                </p>
+            </div>
+
+            <div style="display: flex; justify-content: space-around; margin: 24px 0; text-align: center;">
+                <div>
+                    <div style="font-size: 32px; font-weight: 700; color: var(--tg-theme-button-color, #40a7e3);">250+</div>
+                    <div style="font-size: 14px; color: var(--tg-theme-hint-color, #666);">ПРОЕКТОВ</div>
+                </div>
+                <div>
+                    <div style="font-size: 32px; font-weight: 700; color: var(--tg-theme-button-color, #40a7e3);">2019</div>
+                    <div style="font-size: 14px; color: var(--tg-theme-hint-color, #666);">СТАРТ ПУТИ</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 20px; font-weight: 600; margin: 24px 0 16px;">Почему клиенты выбирают меня:</h3>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px; background: var(--tg-theme-secondary-bg-color, #f8f9fa); padding: 12px; border-radius: 12px;">
+                    <span style="font-size: 24px;">✨</span>
+                    <div>
+                        <div style="font-weight: 600;">Естественность</div>
+                        <div style="font-size: 14px; color: var(--tg-theme-hint-color, #666);">Атмосферные кадры без постановочной «натянутости».</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; background: var(--tg-theme-secondary-bg-color, #f8f9fa); padding: 12px; border-radius: 12px;">
+                    <span style="font-size: 24px;">😌</span>
+                    <div>
+                        <div style="font-weight: 600;">Комфорт</div>
+                        <div style="font-size: 14px; color: var(--tg-theme-hint-color, #666);">Помощь с позированием, локацией и образом — съёмка без стресса.</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; background: var(--tg-theme-secondary-bg-color, #f8f9fa); padding: 12px; border-radius: 12px;">
+                    <span style="font-size: 24px;">🎨</span>
+                    <div>
+                        <div style="font-weight: 600;">Чистый цвет</div>
+                        <div style="font-size: 14px; color: var(--tg-theme-hint-color, #666);">Профессиональная обработка — Photoshop, Lightroom, DaVinci Resolve.</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; background: var(--tg-theme-secondary-bg-color, #f8f9fa); padding: 12px; border-radius: 12px;">
+                    <span style="font-size: 24px;">⚡</span>
+                    <div>
+                        <div style="font-weight: 600;">Скорость</div>
+                        <div style="font-size: 14px; color: var(--tg-theme-hint-color, #666);">Готовые фотографии вы получаете в течение 2–3 дней.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px; text-align: center;">
+                <button class="button" onclick="app.navigateTo('portfolio')">
+                    📸 Смотреть портфолио
                 </button>
             </div>
         `
