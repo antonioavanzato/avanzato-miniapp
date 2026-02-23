@@ -227,20 +227,202 @@ const sections = {
             </div>
         `
     },
-    portfolio: {
+        portfolio: {
         title: 'Портфолио',
         content: `
-            <div class="gallery">
-                <div class="gallery-item" onclick="app.showAlert('Фото 1')" style="background: #ddd;"></div>
-                <div class="gallery-item" onclick="app.showAlert('Фото 2')" style="background: #ccc;"></div>
-                <div class="gallery-item" onclick="app.showAlert('Фото 3')" style="background: #bbb;"></div>
-                <div class="gallery-item" onclick="app.showAlert('Фото 4')" style="background: #aaa;"></div>
-                <div class="gallery-item" onclick="app.showAlert('Фото 5')" style="background: #999;"></div>
-                <div class="gallery-item" onclick="app.showAlert('Фото 6')" style="background: #888;"></div>
+            <style>
+                .portfolio-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                    margin-bottom: 32px;
+                }
+                
+                @media (min-width: 768px) {
+                    .portfolio-grid {
+                        grid-template-columns: repeat(12, 1fr);
+                    }
+                }
+                
+                .portfolio-card {
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 24px;
+                    transition: all 0.7s ease-out;
+                    cursor: pointer;
+                }
+                
+                .portfolio-card:hover {
+                    transform: scale(1.01);
+                    filter: brightness(1.05);
+                }
+                
+                .portfolio-card img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: grayscale(1);
+                    transition: filter 0.5s ease;
+                }
+                
+                .portfolio-card:hover img {
+                    filter: grayscale(0);
+                }
+                
+                .portfolio-label {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 20px;
+                    font-size: 9px;
+                    font-weight: 500;
+                    letter-spacing: 0.5em;
+                    text-transform: uppercase;
+                    color: white;
+                    background: rgba(0,0,0,0.3);
+                    backdrop-filter: blur(10px);
+                    padding: 8px 16px;
+                    border-radius: 40px;
+                    border: 1px solid rgba(255,255,255,0.2);
+                }
+                
+                .aspect-portrait { aspect-ratio: 3/4; }
+                .aspect-landscape { aspect-ratio: 16/10; }
+                .aspect-square { aspect-ratio: 1/1; }
+                .aspect-wide { aspect-ratio: 16/7; }
+                .aspect-video { aspect-ratio: 4/3; }
+                
+                .col-span-8 { grid-column: span 8; }
+                .col-span-4 { grid-column: span 4; }
+                .col-span-6 { grid-column: span 6; }
+                
+                @media (max-width: 767px) {
+                    .col-span-8, .col-span-4, .col-span-6 {
+                        grid-column: span 1;
+                    }
+                }
+                
+                .contact-buttons {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    margin: 32px 0;
+                }
+                
+                @media (min-width: 640px) {
+                    .contact-buttons {
+                        flex-direction: row;
+                        justify-content: center;
+                    }
+                }
+                
+                .contact-btn {
+                    padding: 16px 32px;
+                    border: 1px solid var(--tg-theme-hint-color, #ccc);
+                    border-radius: 40px;
+                    font-size: 9px;
+                    font-weight: 500;
+                    letter-spacing: 0.5em;
+                    text-transform: uppercase;
+                    text-align: center;
+                    transition: all 0.7s;
+                    background: transparent;
+                    color: var(--tg-theme-text-color, #000);
+                }
+                
+                .contact-btn:hover {
+                    background: var(--tg-theme-button-color, #40a7e3);
+                    color: white;
+                    border-color: var(--tg-theme-button-color, #40a7e3);
+                }
+                
+                .social-links {
+                    display: flex;
+                    justify-content: center;
+                    gap: 32px;
+                    margin-top: 40px;
+                }
+                
+                .social-link {
+                    font-size: 9px;
+                    font-weight: 500;
+                    letter-spacing: 0.5em;
+                    text-transform: uppercase;
+                    color: var(--tg-theme-hint-color, #666);
+                    transition: color 0.3s;
+                }
+                
+                .social-link:hover {
+                    color: var(--tg-theme-button-color, #40a7e3);
+                }
+            </style>
+
+            <div style="text-align: center; margin: 24px 0 32px;">
+                <h1 style="font-size: 32px; font-weight: 200; margin-bottom: 16px;">Портфолио</h1>
+                <p style="color: var(--tg-theme-hint-color, #666); max-width: 600px; margin: 0 auto;">
+                    Визуальные истории, запечатленные в моменте. Коллекция света, тени и эмоций.
+                </p>
             </div>
-        `
-    }
-};
+
+            <div class="portfolio-grid">
+                <!-- Портретная съемка -->
+                <div class="portfolio-card col-span-8 aspect-landscape" onclick="app.showAlert('Портретная съемка')">
+                    <img src="https://i.wfolio.ru/x/cXPZPmu9lCw5tkRNat7JtyHjrPiZiclN/VJgIrluFLtZWGwzaT5FJ07DuSK__bTQA/WFY7UuJewr7NuAw643fd7xufByqQiszH/ZbRpBxjHARz1F-J079vCd2i8gji0nOQP/KVJAbtgEOyKRqmjQ7FfnFQ.jpg" alt="Портретная съемка">
+                    <span class="portfolio-label">ПОРТРЕТНАЯ</span>
+                </div>
+
+                <!-- Репортаж -->
+                <div class="portfolio-card col-span-4 aspect-portrait" onclick="app.showAlert('Репортажная съемка')">
+                    <img src="https://i.wfolio.ru/x/cXPZPmu9lCw5tkRNat7JtyHjrPiZiclN/VJgIrluFLtZWGwzaT5FJ07DuSK__bTQA/al3z2K7cv1CJAzQ_-EIEolqIEJSSWaqP/i3FqXwy7ko9sTuMRaYqltZeux6Icr_vO.jpg" alt="Репортажная съемка">
+                    <span class="portfolio-label">РЕПОРТАЖ</span>
+                </div>
+
+                <!-- Предметная съемка -->
+                <div class="portfolio-card col-span-4 aspect-square" onclick="app.showAlert('Предметная съемка')">
+                    <img src="https://i.wfolio.ru/x/XEFEvE-Nu381pOR4oV5MYYkCKAb7WEFi/2HxtdBnmmBUxFRl-bxvEKe5TBld7KBhR/_uH9pu2xBLrIBMhIHc4If6rMv6m2DtCS/vJPnRPfNtXpoi7ezVQgk-ox-hn8Qy5km/e_qQwpGspR0qUs46vw41cA.jpg" alt="Предметная съемка">
+                    <span class="portfolio-label">ПРЕДМЕТНАЯ</span>
+                </div>
+
+                <!-- Интерьерная съемка -->
+                <div class="portfolio-card col-span-8 aspect-wide" onclick="app.showAlert('Интерьерная съемка')">
+                    <img src="https://i.wfolio.ru/x/zfNWg0RActCaYvCdP8NS6h3QcKqIOO7I/oVCmpsR2A0_zCBuWQbm7dJYwNQ6ysoqE/TpaEb9QZvMei807TvGW2h_t-NBXMzDeP/SdvJvEswrvRiTddhUiBRlv91u4taz9_I/raCfsII-6FmZuONfAqHb7w.jpg" alt="Интерьерная съемка">
+                    <span class="portfolio-label">ИНТЕРЬЕРНАЯ</span>
+                </div>
+
+                <!-- Видео -->
+                <div class="portfolio-card col-span-6 aspect-video" onclick="app.showAlert('Видеосъемка')">
+                    <img src="https://i.wfolio.ru/x/cXPZPmu9lCw5tkRNat7JtyHjrPiZiclN/VJgIrluFLtZWGwzaT5FJ07DuSK__bTQA/KQhfSNGgQwTIIsaDpSPAU9TP7gBudYdH/TFpukVkJAIN6QFpWeF6tNE8nEjKRGH8M/mNHQZHGkLqBeUqWOe23MvA.jpg" alt="Видеосъемка">
+                    <span class="portfolio-label">ВИДЕО</span>
+                </div>
+
+                <!-- Архитектура -->
+                <div class="portfolio-card col-span-6 aspect-video" onclick="app.showAlert('Архитектурная съемка')">
+                    <img src="https://i.wfolio.ru/x/cXPZPmu9lCw5tkRNat7JtyHjrPiZiclN/VJgIrluFLtZWGwzaT5FJ07DuSK__bTQA/S6cv_dDap8Ndk0UFp_jvfHY1Kid1RDFv/5wrFmx6WwWFBTZ1Ctpj5r3z0c_6vT_P9/oRXcVIZYZC0sCYAWGQQutg.jpg" alt="Архитектурная съемка">
+                    <span class="portfolio-label">АРХИТЕКТУРА</span>
+                </div>
+
+                <!-- Автомобильная -->
+                <div class="portfolio-card col-span-8 aspect-wide" onclick="app.showAlert('Автомобильная съемка')">
+                    <img src="https://i.wfolio.ru/x/zfNWg0RActCaYvCdP8NS6h3QcKqIOO7I/oVCmpsR2A0_zCBuWQbm7dJYwNQ6ysoqE/nNCmlyS0ijq83Xcw2K0DQfrmkSKsBri_/vIVHOfzffgZ7aJ4ozIdW1JypHQnNvBTj/woUdoSlHseskd6Lnr2eMgg.jpg" alt="Автомобильная съемка">
+                    <span class="portfolio-label">АВТОМОБИЛЬНАЯ</span>
+                </div>
+            </div>
+
+            <!-- Блок контактов -->
+            <div style="text-align: center; padding: 40px 0;">
+                <h2 style="font-size: 28px; font-weight: 200; margin-bottom: 24px;">Готовы создать шедевр?</h2>
+                
+                <div class="contact-buttons">
+                    <button class="contact-btn" onclick="app.navigateTo('price')">ЗАПИСАТЬСЯ</button>
+                    <button class="contact-btn" onclick="app.openChat()">ОБСУДИТЬ ПРОЕКТ</button>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" onclick="app.showAlert('Instagram')" class="social-link">INSTAGRAM</a>
+                    <a href="#" onclick="app.openChat()" class="social-link">TELEGRAM</a>
+                    <a href="#" onclick="app.showAlert('Behance')" class="social-link">BEHANCE</a>
+                </div>
+            </div>
+    },
 
 // Основное приложение
 const app = {
