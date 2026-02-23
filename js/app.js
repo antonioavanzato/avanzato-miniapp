@@ -5,7 +5,6 @@ tg.expand();
 // Данные для разделов
 const sections = {
     main: {
-           main: {
         title: 'Anton Avanzato',
         content: `
             <div style="text-align: center; margin-bottom: 24px;">
