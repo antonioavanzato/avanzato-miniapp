@@ -1,42 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avanzato Test</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px 20px;
-            background: white;
-            color: black;
-        }
-        h1 { color: #40a7e3; }
-        button {
-            background: #40a7e3;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 18px;
-            margin: 10px;
-        }
-    </style>
+    <title>Anton Avanzato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>✅ Работает!</h1>
-    <p>Если вы это видите - HTML загружен</p>
-    <button onclick="alert('Кнопка нажата!')">Нажми меня</button>
-    
-    <script>
-        // Попытка подключиться к Telegram
-        if (window.Telegram && window.Telegram.WebApp) {
-            window.Telegram.WebApp.expand();
-            window.Telegram.WebApp.showAlert('Telegram WebApp подключён!');
-        } else {
-            alert('Telegram WebApp НЕ доступен (вы в браузере)');
-        }
-    </script>
+    <div class="app">
+        <header class="header">
+            <button class="back-btn hidden" id="backBtn">←</button>
+            <h1 class="title" id="pageTitle">Anton Avanzato</h1>
+            <div style="width: 40px;"></div>
+        </header>
+
+        <main class="content" id="content">
+            <!-- Контент загружается через JS -->
+        </main>
+
+        <nav class="bottom-nav" id="bottomNav">
+            <button class="nav-item active" data-section="main">🏠</button>
+            <button class="nav-item" data-section="portfolio">📸</button>
+            <button class="nav-item" data-section="price">💰</button>
+            <button class="nav-item" data-section="contacts">📞</button>
+        </nav>
+    </div>
+
+    <script src="js/app.js"></script>
 </body>
 </html>
