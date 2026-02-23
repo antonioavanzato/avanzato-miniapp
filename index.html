@@ -1,73 +1,42 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anton Avanzato</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Avanzato Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px 20px;
+            background: white;
+            color: black;
+        }
+        h1 { color: #40a7e3; }
+        button {
+            background: #40a7e3;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="app">
-        <header class="header">
-            <h1 class="title" id="pageTitle">Anton Avanzato</h1>
-        </header>
-
-        <main class="content" id="content">
-            <div class="menu-grid" id="mainMenu">
-                <button class="menu-item" onclick="location.href='?start=portfolio'">
-                    <span class="emoji">📸</span>
-                    <span class="label">Портфолио</span>
-                </button>
-                <button class="menu-item" onclick="location.href='?start=price'">
-                    <span class="emoji">💰</span>
-                    <span class="label">Прайс</span>
-                </button>
-                <button class="menu-item" onclick="location.href='?start=tutorial'">
-                    <span class="emoji">🎓</span>
-                    <span class="label">Обучение</span>
-                </button>
-                <button class="menu-item" onclick="location.href='?start=presets'">
-                    <span class="emoji">🎨</span>
-                    <span class="label">Пресеты</span>
-                </button>
-                <button class="menu-item" onclick="location.href='?start=web'">
-                    <span class="emoji">🌐</span>
-                    <span class="label">Создание сайта</span>
-                </button>
-                <button class="menu-item" onclick="location.href='?start=reviews'">
-                    <span class="emoji">⭐</span>
-                    <span class="label">Отзывы</span>
-                </button>
-                <button class="menu-item" onclick="location.href='?start=contacts'">
-                    <span class="emoji">📞</span>
-                    <span class="label">Контакты</span>
-                </button>
-            </div>
-        </main>
-    </div>
-
+    <h1>✅ Работает!</h1>
+    <p>Если вы это видите - HTML загружен</p>
+    <button onclick="alert('Кнопка нажата!')">Нажми меня</button>
+    
     <script>
-        // Инициализация Telegram WebApp
-        const tg = window.Telegram.WebApp;
-        
-        // Показываем на весь экран
-        tg.expand();
-        
-        // Сообщаем Telegram, что приложение готово
-        tg.ready();
-        
-        // Получаем параметр из ссылки (если есть)
-        const urlParams = new URLSearchParams(window.location.search);
-        const startParam = urlParams.get('start') || tg.initDataUnsafe?.start_param;
-        
-        // Если пришли по прямой ссылке - показываем уведомление
-        if (startParam) {
-            tg.showAlert(`Открыт раздел: ${startParam}`);
+        // Попытка подключиться к Telegram
+        if (window.Telegram && window.Telegram.WebApp) {
+            window.Telegram.WebApp.expand();
+            window.Telegram.WebApp.showAlert('Telegram WebApp подключён!');
+        } else {
+            alert('Telegram WebApp НЕ доступен (вы в браузере)');
         }
-        
-        // Делаем tg доступным глобально
-        window.tg = tg;
     </script>
 </body>
 </html>
