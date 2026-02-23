@@ -4,29 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anton Avanzato</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            padding: 16px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .menu-item {
+            background: #f0f0f0;
+            border: none;
+            border-radius: 14px;
+            padding: 24px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .emoji {
+            font-size: 32px;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #40a7e3;
+        }
+    </style>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <div class="app">
-        <header class="header">
-            <button class="back-btn hidden" id="backBtn">←</button>
-            <h1 class="title" id="pageTitle">Anton Avanzato</h1>
-            <div style="width: 40px;"></div>
-        </header>
-
-        <main class="content" id="content">
-            <!-- Контент загружается через JS -->
-        </main>
-
-        <nav class="bottom-nav" id="bottomNav">
-            <button class="nav-item active" data-section="main">🏠</button>
-            <button class="nav-item" data-section="portfolio">📸</button>
-            <button class="nav-item" data-section="price">💰</button>
-            <button class="nav-item" data-section="contacts">📞</button>
-        </nav>
+    <h1>Anton Avanzato</h1>
+    
+    <div class="menu-grid" id="menu">
+        <button class="menu-item" onclick="alert('Портфолио')">
+            <span class="emoji">📸</span>
+            Портфолио
+        </button>
+        <button class="menu-item" onclick="alert('Прайс')">
+            <span class="emoji">💰</span>
+            Прайс
+        </button>
+        <button class="menu-item" onclick="alert('Обучение')">
+            <span class="emoji">🎓</span>
+            Обучение
+        </button>
+        <button class="menu-item" onclick="alert('Пресеты')">
+            <span class="emoji">🎨</span>
+            Пресеты
+        </button>
+        <button class="menu-item" onclick="alert('Создание сайта')">
+            <span class="emoji">🌐</span>
+            Сайты
+        </button>
+        <button class="menu-item" onclick="alert('Отзывы')">
+            <span class="emoji">⭐</span>
+            Отзывы
+        </button>
+        <button class="menu-item" onclick="alert('Контакты')">
+            <span class="emoji">📞</span>
+            Контакты
+        </button>
     </div>
 
-    <script src="js/app.js"></script>
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+        tg.ready();
+    </script>
 </body>
 </html>
